@@ -26,19 +26,7 @@ class MainActivity : AppCompatActivity() {
     }
 
     fun changeSimpson(name: String) {
-        when (name) {
-            "homer" -> {
-                binding.imgSimpson.setImageResource(R.drawable.homer)
-            }
-            "marge" -> {
-                binding.imgSimpson.setImageResource(R.drawable.marge)
-            }
-            "lisa" -> {
-                binding.imgSimpson.setImageResource(R.drawable.lisa)
-            }
-            else -> {
-                binding.imgSimpson.setImageResource(R.drawable.bart)
-            }
-        }
+        val id = resources.getIdentifier(name, "drawable", packageName)
+        binding.imgSimpson.setImageResource(id)
     }
 }
