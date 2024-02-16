@@ -5,14 +5,51 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".MainActivity">
-
-    <TextView
+    <LinearLayout
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Hello World!"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        >
+        <Button
+            android:id="@+id/btnHomer"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Homero"
+            />
+
+        <Button
+            android:id="@+id/btnMarge"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Marge"
+            />
+
+        <Button
+            android:id="@+id/btnLisa"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Lisa"
+            />
+
+        <Button
+            android:id="@+id/btnBart"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Bart"
+/>
+    </LinearLayout>
+
+
+
+    <ImageView
+        android:id="@+id/imgSimpson"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/homer" />
 </androidx.constraintlayout.widget.ConstraintLayout>

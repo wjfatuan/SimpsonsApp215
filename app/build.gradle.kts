@@ -7,6 +7,10 @@ android {
     namespace = "co.edu.uan.android.simpsonsapp215"
     compileSdk = 34
 
+    buildFeatures {
+        viewBinding = true
+    }
+
     defaultConfig {
         applicationId = "co.edu.uan.android.simpsonsapp215"
         minSdk = 28
