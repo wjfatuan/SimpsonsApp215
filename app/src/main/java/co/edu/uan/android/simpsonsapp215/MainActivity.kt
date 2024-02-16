@@ -26,17 +26,19 @@ class MainActivity : AppCompatActivity() {
     }
 
     fun changeSimpson(name: String) {
-        if(name=="homer") {
-            binding.imgSimpson.setImageResource(R.drawable.homer)
-        }
-        else if(name=="marge") {
-            binding.imgSimpson.setImageResource(R.drawable.marge)
-        }
-        else if(name=="lisa") {
-            binding.imgSimpson.setImageResource(R.drawable.lisa)
-        }
-        else {
-            binding.imgSimpson.setImageResource(R.drawable.bart)
+        when (name) {
+            "homer" -> {
+                binding.imgSimpson.setImageResource(R.drawable.homer)
+            }
+            "marge" -> {
+                binding.imgSimpson.setImageResource(R.drawable.marge)
+            }
+            "lisa" -> {
+                binding.imgSimpson.setImageResource(R.drawable.lisa)
+            }
+            else -> {
+                binding.imgSimpson.setImageResource(R.drawable.bart)
+            }
         }
     }
 }
