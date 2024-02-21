@@ -6,6 +6,7 @@
     android:layout_height="match_parent"
     tools:context=".MainActivity">
     <LinearLayout
+        android:id="@+id/buttons"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         app:layout_constraintStart_toStartOf="parent"
@@ -40,6 +41,54 @@
             android:text="Bart"
 />
     </LinearLayout>
+
+    <RadioGroup
+        android:id="@+id/radiobuttons"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/buttons"
+        android:orientation="horizontal"
+        >
+        <RadioButton
+            android:id="@+id/rbHomer"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Homero"
+            />
+
+        <RadioButton
+            android:id="@+id/rbMarge"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Marge"
+            />
+
+        <RadioButton
+            android:id="@+id/rbLisa"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Lisa"
+            />
+
+        <RadioButton
+            android:id="@+id/rbBart"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Bart"
+            />
+    </RadioGroup>
+
+    <ListView android:id="@+id/lvSimpsons"
+        android:entries="@array/simpson_names"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/radiobuttons"
+
+        />
 
 
 

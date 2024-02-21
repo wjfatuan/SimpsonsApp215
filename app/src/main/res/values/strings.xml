@@ -1,3 +1,8 @@
 <resources>
     <string name="app_name">SimpsonsApp215</string>
+    <string-array name="simpson_names">
+        <item>homer</item>
+        <item>marge</item>
+        <item>Bart</item>
+    </string-array>
 </resources>
