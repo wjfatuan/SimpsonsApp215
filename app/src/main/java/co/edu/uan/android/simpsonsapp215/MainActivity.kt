@@ -2,13 +2,16 @@ package co.edu.uan.android.simpsonsapp215
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.widget.ArrayAdapter
+import android.view.View
+import android.widget.CheckBox
+import android.widget.ImageView
 import android.widget.TextView
 import co.edu.uan.android.simpsonsapp215.databinding.ActivityMainBinding
 
 class MainActivity : AppCompatActivity() {
 
     lateinit var binding:ActivityMainBinding
+    val selectedCharacters = arrayListOf<String>()
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivityMainBinding.inflate(layoutInflater)
@@ -18,28 +21,32 @@ class MainActivity : AppCompatActivity() {
 
         setContentView(binding.root)
         binding.btnBart.setOnClickListener {
-            changeSimpson("bart")
+            binding.simpsonsContainer.removeAllViewsInLayout()
+            showSingleSimpson("bart")
         }
         binding.btnHomer.setOnClickListener {
-            changeSimpson("homer")
+            binding.simpsonsContainer.removeAllViewsInLayout()
+            showSingleSimpson("homer")
         }
         binding.btnMarge.setOnClickListener {
-            changeSimpson("marge")
+            binding.simpsonsContainer.removeAllViewsInLayout()
+            showSingleSimpson("marge")
         }
         binding.btnLisa.setOnClickListener {
-            changeSimpson("lisa")
+            binding.simpsonsContainer.removeAllViewsInLayout()
+            showSingleSimpson("lisa")
         }
         binding.rbBart.setOnClickListener {
-            changeSimpson("bart")
+            changeSimpson("bart", it)
         }
         binding.rbHomer.setOnClickListener {
-            changeSimpson("homer")
+            changeSimpson("homer", it)
         }
         binding.rbMarge.setOnClickListener {
-            changeSimpson("marge")
+            changeSimpson("marge", it)
         }
         binding.rbLisa.setOnClickListener {
-            changeSimpson("lisa")
+            changeSimpson("lisa", it)
         }
 
         val myadapter = SimpsonsAdapter(this, R.layout.list_simpsons, simpsonNames)
@@ -47,7 +54,7 @@ class MainActivity : AppCompatActivity() {
 
         binding.lvSimpsons.setOnItemClickListener { parent, view, position, id ->
             println("parent: $parent, view: $view, position $position, id: $id")
-            changeSimpson(simpsonNames[position].lowercase())
+            showSingleSimpson(simpsonNames[position].lowercase())
             simpsonNames.add("marge")
             simpsonNames[0]="homer"
             myadapter.notifyDataSetChanged()
@@ -55,8 +62,29 @@ class MainActivity : AppCompatActivity() {
         }
     }
 
-    fun changeSimpson(name: String) {
+    fun showSingleSimpson(name: String) {
+
+        val singleLayout = layoutInflater.inflate(R.layout.single_simpson, null)
         val id = resources.getIdentifier(name, "drawable", packageName)
-        binding.imgSimpson.setImageResource(id)
+        singleLayout.findViewById<ImageView>(R.id.ivSingleImage).setImageResource(id)
+        singleLayout.findViewById<TextView>(R.id.tvSingleName).text = name
+        binding.simpsonsContainer.addView(singleLayout)
+    }
+
+    fun showSimpsons() {
+        binding.simpsonsContainer.removeAllViewsInLayout()
+        for(c in selectedCharacters) {
+            showSingleSimpson(c)
+        }
+    }
+    fun changeSimpson(name: String, view: View) {
+        // add or remove the character in the array
+        val cb = view as CheckBox
+        if(cb.isChecked)
+            selectedCharacters.add(name)
+        else
+            selectedCharacters.remove(name)
+        // show all characters
+        showSimpsons()
     }
 }

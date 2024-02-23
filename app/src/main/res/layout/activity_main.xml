@@ -5,6 +5,25 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".MainActivity">
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        >
+
+        <LinearLayout android:id="@+id/simpsonsContainer"
+            android:orientation="vertical"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            />
+    </ScrollView>
     <LinearLayout
         android:id="@+id/buttons"
         android:layout_width="wrap_content"
@@ -42,7 +61,7 @@
 />
     </LinearLayout>
 
-    <RadioGroup
+    <LinearLayout
         android:id="@+id/radiobuttons"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -51,34 +70,34 @@
         app:layout_constraintTop_toBottomOf="@id/buttons"
         android:orientation="horizontal"
         >
-        <RadioButton
+        <CheckBox
             android:id="@+id/rbHomer"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Homero"
             />
 
-        <RadioButton
+        <CheckBox
             android:id="@+id/rbMarge"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Marge"
             />
 
-        <RadioButton
+        <CheckBox
             android:id="@+id/rbLisa"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Lisa"
             />
 
-        <RadioButton
+        <CheckBox
             android:id="@+id/rbBart"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Bart"
             />
-    </RadioGroup>
+    </LinearLayout>
 
     <ListView android:id="@+id/lvSimpsons"
         android:entries="@array/simpson_names"
@@ -92,13 +111,15 @@
 
 
 
-    <ImageView
-        android:id="@+id/imgSimpson"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@drawable/homer" />
+<!--    <ImageView-->
+<!--        android:id="@+id/imgSimpson"-->
+<!--        android:layout_width="wrap_content"-->
+<!--        android:layout_height="wrap_content"-->
+<!--        app:layout_constraintBottom_toBottomOf="parent"-->
+<!--        app:layout_constraintEnd_toEndOf="parent"-->
+<!--        app:layout_constraintStart_toStartOf="parent"-->
+<!--        app:layout_constraintTop_toTopOf="parent"-->
+<!--        app:srcCompat="@drawable/homer" />-->
+
+
 </androidx.constraintlayout.widget.ConstraintLayout>

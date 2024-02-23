@@ -4,6 +4,7 @@ import android.app.Activity
 import android.view.View
 import android.view.ViewGroup
 import android.widget.ArrayAdapter
+import android.widget.ImageView
 import android.widget.TextView
 
 class SimpsonsAdapter(val activity: Activity, val layout: Int, val data: ArrayList<String>)
@@ -13,6 +14,9 @@ class SimpsonsAdapter(val activity: Activity, val layout: Int, val data: ArrayLi
         val view = activity.layoutInflater.inflate(layout, null)
         val tv = view.findViewById<TextView>(R.id.tvName)
         tv.text = data[position]
+        val iv = view.findViewById<ImageView>(R.id.ivPhoto)
+        val id = activity.resources.getIdentifier(data[position], "drawable", activity.packageName)
+        iv.setImageResource(id)
         return view
     }
 }
